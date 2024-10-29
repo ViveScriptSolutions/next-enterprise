@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod"
 
 // Validation schema for the product form
 export const serviceSchema = z.object({
@@ -24,14 +24,15 @@ export const serviceSchema = z.object({
       })
     )
     .optional(),
-});
+})
 
 // TypeScript types inferred from the schema
-export type ServiceFormType = z.infer<typeof serviceSchema>;
+export type ServiceFormType = z.infer<typeof serviceSchema>
 
 // Interface for database structure
 export interface Service extends ServiceFormType {
-  id: string; // Unique identifier for database records
-  createdAt?: Date;
-  updatedAt?: Date;
+  id: string // Unique identifier for database records
+  createdAt?: Date
+  updatedAt?: Date
+  icon?: string
 }

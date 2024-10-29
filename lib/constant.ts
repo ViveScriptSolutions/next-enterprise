@@ -1,6 +1,6 @@
-import { Product } from "@/types/product.types";
-import { Project } from "@/types/projects.types";
-import { Service } from "@/types/service.types";
+import { Product } from "@/types/product.types"
+import { Project } from "@/types/projects.types"
+import { Service } from "@/types/service.types"
 
 const category = {
   webDevelopment: "Web Development",
@@ -13,15 +13,14 @@ const category = {
   googleSheets: "Google Sheets",
   hostingAndManagement: "Full-Service Hosting & Management",
   businessAutomation: "Business Automation",
-};
+}
 
 export const projects: Project[] = [
   {
     id: "1",
     name: "E-commerce Website",
     slug: "e-commerce-website",
-    description:
-      "A fully responsive e-commerce website with payment integration, product catalog, and user accounts.",
+    description: "A fully responsive e-commerce website with payment integration, product catalog, and user accounts.",
     technologies: ["React", "Next.js", "Stripe", "TailwindCSS"],
     imageUrl: "/assets/images/appointment-img.png",
     demoUrl: "https://ecommerce-demo.com",
@@ -43,7 +42,7 @@ export const projects: Project[] = [
       "This portfolio site highlights different projects, including detailed project pages, a blog section, and a contact form. Built using Next.js, the site features responsive design and allows for easy management of projects and blog posts.",
   },
   // More projects can be added here
-];
+]
 
 export const productList: Product[] = [
   {
@@ -52,15 +51,7 @@ export const productList: Product[] = [
     slug: "develop-e-commerce-website",
     category: category.webDevelopment,
     technology: ["HTML", "CSS", "React", "Next.js", "JavaScript", "TypeScript"],
-    tags: [
-      "PSD",
-      "HTML",
-      "web-development",
-      "website",
-      "webapp",
-      "e-commerce",
-      "full-stack",
-    ],
+    tags: ["PSD", "HTML", "web-development", "website", "webapp", "e-commerce", "full-stack"],
     basePrice: 4999.99,
     minimumDays: 60,
     description:
@@ -108,8 +99,7 @@ export const productList: Product[] = [
         name: "CMS Integration",
         price: 999,
         additionalDays: 14,
-        notes:
-          "Content Management System integration (WordPress, Strapi, etc.)",
+        notes: "Content Management System integration (WordPress, Strapi, etc.)",
       },
       {
         name: "Blog Setup",
@@ -140,8 +130,7 @@ export const productList: Product[] = [
           "Yes, I can develop your site using either Tailwind CSS or Vanilla CSS, depending on your preferences or project requirements.",
       },
       {
-        question:
-          "Do you provide the source code after the project is completed?",
+        question: "Do you provide the source code after the project is completed?",
         answer:
           "Yes, I deliver the full source code after the project is done. This allows you or your developer to easily update or integrate it into other systems.",
       },
@@ -157,13 +146,11 @@ export const productList: Product[] = [
       },
       {
         question: "Can you ensure SEO-friendly code for my website?",
-        answer:
-          "Yes, I follow SEO best practices to ensure your website is optimized for search engines.",
+        answer: "Yes, I follow SEO best practices to ensure your website is optimized for search engines.",
       },
       {
         question: "What files do I need to share for the project? ",
-        answer:
-          "You’ll need to share your design files, whether they’re in Figma, XD, PSD, or PDF format.",
+        answer: "You’ll need to share your design files, whether they’re in Figma, XD, PSD, or PDF format.",
       },
     ],
   },
@@ -173,15 +160,7 @@ export const productList: Product[] = [
     slug: "static-website-development",
     category: category.webDevelopment,
     technology: ["HTML", "CSS", "React", "Next.js"],
-    tags: [
-      "static website",
-      "HTML",
-      "CSS",
-      "marketing website",
-      "contact form",
-      "Next.js",
-      "React",
-    ],
+    tags: ["static website", "HTML", "CSS", "marketing website", "contact form", "Next.js", "React"],
     basePrice: 1999.99,
     minimumDays: 15,
     description:
@@ -220,8 +199,7 @@ export const productList: Product[] = [
         name: "Add Google Analytics",
         price: 49,
         additionalDays: 1,
-        notes:
-          "Google Analytics setup for tracking site traffic and user behavior.",
+        notes: "Google Analytics setup for tracking site traffic and user behavior.",
       },
       {
         name: "SEO Optimization",
@@ -264,8 +242,7 @@ export const productList: Product[] = [
       },
       {
         question: "How long will it take to complete the static website?",
-        answer:
-          "The project will take a minimum of 15 days, depending on the complexity and number of pages required.",
+        answer: "The project will take a minimum of 15 days, depending on the complexity and number of pages required.",
       },
       {
         question: "Can I request changes during development?",
@@ -318,15 +295,13 @@ export const productList: Product[] = [
         name: "Add Google Analytics",
         price: 99,
         additionalDays: 1,
-        notes:
-          "Google Analytics setup to track visitor traffic and user behavior.",
+        notes: "Google Analytics setup to track visitor traffic and user behavior.",
       },
       {
         name: "Integrate Email Marketing Form",
         price: 149,
         additionalDays: 1,
-        notes:
-          "Connect a form to your email marketing platform (Mailchimp, etc.).",
+        notes: "Connect a form to your email marketing platform (Mailchimp, etc.).",
       },
     ],
     faq: [
@@ -342,24 +317,20 @@ export const productList: Product[] = [
       },
       {
         question: "Is the landing page SEO-friendly?",
-        answer:
-          "Yes, I follow SEO best practices to ensure your landing page ranks well on search engines.",
+        answer: "Yes, I follow SEO best practices to ensure your landing page ranks well on search engines.",
       },
       {
-        question:
-          "Can you integrate my landing page with my email marketing tool?",
+        question: "Can you integrate my landing page with my email marketing tool?",
         answer:
           "Yes, I can integrate your landing page with popular email marketing platforms like Mailchimp, allowing you to capture and manage leads effectively.",
       },
       {
         question: "How long will it take to develop the landing page?",
-        answer:
-          "The minimum delivery time is 7 days, depending on the complexity and any add-ons you select.",
+        answer: "The minimum delivery time is 7 days, depending on the complexity and any add-ons you select.",
       },
       {
         question: "Do you provide revisions?",
-        answer:
-          "Yes, I offer revisions as an add-on, allowing you to request changes after the initial delivery.",
+        answer: "Yes, I offer revisions as an add-on, allowing you to request changes after the initial delivery.",
       },
       {
         question: "What design files do I need to provide?",
@@ -397,10 +368,7 @@ export const productList: Product[] = [
       "Automate repetitive tasks",
       "Real-time collaboration with Google Sheets",
     ],
-    images: [
-      "/assets/images/google-sheets-automation-1.png",
-      "/assets/images/google-sheets-automation-2.png",
-    ],
+    images: ["/assets/images/google-sheets-automation-1.png", "/assets/images/google-sheets-automation-2.png"],
     addOns: [
       // { name: "Additional Automation", price: 99, additionalDays: 1, notes: "" },
       { name: "Custom Dashboard", price: 199, additionalDays: 2, notes: "" },
@@ -451,8 +419,7 @@ export const productList: Product[] = [
           "Yes, I can design dynamic dashboards that provide real-time data insights, visualizations, and key performance metrics directly within Google Sheets.",
       },
       {
-        question:
-          "How long does it take to complete a Google Sheets automation project?",
+        question: "How long does it take to complete a Google Sheets automation project?",
         answer:
           "The minimum delivery time is 3 days, but it can vary based on the complexity of the automation and any integrations required.",
       },
@@ -497,10 +464,7 @@ export const productList: Product[] = [
       "Seamless integration with existing workflows",
       "Custom API integration for AI services",
     ],
-    images: [
-      "/assets/images/ai-integration-1.png",
-      "/assets/images/ai-integration-2.png",
-    ],
+    images: ["/assets/images/ai-integration-1.png", "/assets/images/ai-integration-2.png"],
     addOns: [
       { name: "Additional AI Model", price: 499, additionalDays: 5, notes: "" },
       {
@@ -519,22 +483,19 @@ export const productList: Product[] = [
         name: "API Integration for AI Services",
         price: 299,
         additionalDays: 3,
-        notes:
-          "Integrate AI services into your existing workflows using custom APIs.",
+        notes: "Integrate AI services into your existing workflows using custom APIs.",
       },
       {
         name: "Data Cleaning and Preprocessing",
         price: 199,
         additionalDays: 2,
-        notes:
-          "Prepare your data for machine learning models with automated data cleaning.",
+        notes: "Prepare your data for machine learning models with automated data cleaning.",
       },
       {
         name: "Ongoing AI Model Training and Support",
         price: 599,
         additionalDays: 10,
-        notes:
-          "Provide ongoing support and training for AI models after project completion.",
+        notes: "Provide ongoing support and training for AI models after project completion.",
       },
     ],
     faq: [
@@ -569,8 +530,7 @@ export const productList: Product[] = [
           "The data required depends on the type of AI model you need. For predictive analytics, I may need historical data; for customer support, interaction logs; and for NLP, text datasets. I'll guide you on the specific data requirements for your project.",
       },
       {
-        question:
-          "Will I receive the source code after the project is completed?",
+        question: "Will I receive the source code after the project is completed?",
         answer:
           "Yes, you will receive the full source code and all necessary documentation so that your team can maintain, update, or further develop the AI integration if needed.",
       },
@@ -586,14 +546,7 @@ export const productList: Product[] = [
     title: "Custom Android App Development",
     slug: "custom-android-app-development",
     category: category.mobileApp,
-    technology: [
-      "Kotlin",
-      "Firebase",
-      "SQLite",
-      "Android Studio",
-      "ReactNative",
-      "expo",
-    ],
+    technology: ["Kotlin", "Firebase", "SQLite", "Android Studio", "ReactNative", "expo"],
     tags: [
       "android-app-development",
       "mobile-app",
@@ -616,10 +569,7 @@ export const productList: Product[] = [
       "Google Play Store deployment",
       "Post-launch support and maintenance",
     ],
-    images: [
-      "/assets/images/android-app-1.png",
-      "/assets/images/android-app-2.png",
-    ],
+    images: ["/assets/images/android-app-1.png", "/assets/images/android-app-2.png"],
     addOns: [
       { name: "Additional Screen", price: 199, additionalDays: 2, notes: "" },
       {
@@ -632,8 +582,7 @@ export const productList: Product[] = [
         name: "Backend Integration (Firebase)",
         price: 499,
         additionalDays: 5,
-        notes:
-          "Integrate with Firebase for authentication, database, and analytics.",
+        notes: "Integrate with Firebase for authentication, database, and analytics.",
       },
       {
         name: "In-App Purchases",
@@ -645,22 +594,19 @@ export const productList: Product[] = [
         name: "Google AdMob Integration",
         price: 399,
         additionalDays: 5,
-        notes:
-          "Enable ads in your app for revenue generation through Google AdMob.",
+        notes: "Enable ads in your app for revenue generation through Google AdMob.",
       },
       {
         name: "Multi-Language Support",
         price: 199,
         additionalDays: 3,
-        notes:
-          "Implement multi-language support for your app to reach a global audience.",
+        notes: "Implement multi-language support for your app to reach a global audience.",
       },
       {
         name: "Social Media Login",
         price: 299,
         additionalDays: 3,
-        notes:
-          "Allow users to log in using social media accounts like Google or Facebook.",
+        notes: "Allow users to log in using social media accounts like Google or Facebook.",
       },
       {
         name: "Post-launch Bug Fixing and Updates",
@@ -746,7 +692,7 @@ export const productList: Product[] = [
   //     "You'll get an Excel Dashboard for your business data. It can be your sales data or project summary. What tools will I use: 1. I'll use Excel Pivot-Table, Slicer, Graphs/Charts, Maps, etc.; 2. I'll use advance nested Formula and Function; 3. I'll use VBA in case the project required to; 4. I'll embed the web data with the Dashboard if needed; 5. I'll make your dashboard look like it with your brand image. What will you get from me: 1. A professional Excel Dashboard; 2. You can get all your business data in a single place; 3. I'll make the Dashboard user friendly so you can update it easily; 4. I'll assist/teach you how to use/maintain it with video/image instruction or live session; 5. I'll give you after-sales service for 3 months. Please share with me detailed requirements, sample data, and Place Order Now.",
   //   images: ["/assets/images/authentication-dark.png"],
   // },
-];
+]
 
 export const services: Service[] = [
   {
@@ -758,6 +704,7 @@ export const services: Service[] = [
       "Transform your online presence with our expert web development services. We specialize in creating custom websites tailored to your unique business needs. Our focus on responsive design and SEO optimization ensures your site not only looks great but also ranks well on search engines. Partner with us to bring your vision to life and drive user engagement.",
     brief:
       "We offer end-to-end web development services, creating websites that are fast, responsive, and tailored to meet your business goals. Whether it's a static site, dynamic e-commerce platform, or a custom web application, we ensure your online presence is optimized for user engagement and search engine visibility.",
+    icon: "",
     keyPoints: [
       "Custom website design",
       "Responsive and mobile-friendly",
@@ -851,8 +798,7 @@ export const services: Service[] = [
           "Yes, we specialize in automating repetitive tasks in spreadsheets, such as generating reports, cleaning up data, and performing advanced calculations using macros or scripts.",
       },
       {
-        question:
-          "What types of businesses can benefit from spreadsheet automation?",
+        question: "What types of businesses can benefit from spreadsheet automation?",
         answer:
           "Any business dealing with large amounts of data, financial reporting, or repetitive tasks can benefit from spreadsheet automation. We work with companies across industries, including finance, logistics, and marketing.",
       },
@@ -998,6 +944,6 @@ export const services: Service[] = [
       },
     ],
   },
-];
+]
 
-export const adminEmails: string[] = ["vivescriptsolutions@gmail.com"];
+export const adminEmails: string[] = ["vivescriptsolutions@gmail.com"]
