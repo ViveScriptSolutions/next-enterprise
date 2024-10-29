@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { Check, Copy } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export function Terminal() {
   const [terminalStep, setTerminalStep] = useState(0)
   const [copied, setCopied] = useState(false)
   const terminalSteps = [
-    "git clone https://github.com/leerob/next-saas-starter",
+    "git clone https://github.com/ViveScriptSolutions/next-enterprise.git",
     "pnpm install",
     "pnpm db:setup",
     "pnpm db:migrate",
@@ -34,16 +34,16 @@ export function Terminal() {
       <div className="p-4">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex space-x-2">
-            <div className="h-3 w-3 rounded-full bg-red-500"></div>
-            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-            <div className="h-3 w-3 rounded-full bg-green-500"></div>
+            <div className="size-3 rounded-full bg-red-500"></div>
+            <div className="size-3 rounded-full bg-yellow-500"></div>
+            <div className="size3 w-3 rounded-full bg-green-500"></div>
           </div>
           <button
             onClick={copyToClipboard}
             className="text-gray-400 transition-colors hover:text-white"
             aria-label="Copy to clipboard"
           >
-            {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+            {copied ? <Check className="size-5" /> : <Copy className="size-5" />}
           </button>
         </div>
         <div className="space-y-2">
