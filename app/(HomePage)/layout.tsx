@@ -1,10 +1,10 @@
-import Header from "./Header";
+import Header from "@/components/Header"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="flex flex-col min-h-screen">
+    <section className="flex min-h-screen flex-col">
       <Header />
       {children}
     </section>
-  );
+  )
 }
