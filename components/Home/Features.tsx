@@ -135,7 +135,7 @@ const Features = () => {
   return (
     <section className="py-14">
       <div className="mx-auto max-w-screen-xl px-4 text-gray-600 dark:text-gray-300 md:px-8">
-        <div className="max-w-xl space-y-3">
+        {/* <div className="max-w-xl space-y-3">
           <h3 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 sm:text-4xl">Why us?</h3>
           <p>
             Why not! We offer the same services as the big agencies but with a personalized, client-focused approach. At
@@ -143,12 +143,12 @@ const Features = () => {
             success. We combine technical expertise with business insight to deliver powerful results that help your
             business grow.
           </p>
-        </div>
+        </div> */}
         <div className="mt-12">
           <ul className="grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((item, idx) => (
               <li key={idx} className="flex gap-x-4">
-                <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-green-500 text-white">
+                <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-orange-500 text-white">
                   {item.icon}
                 </div>
                 <div className="space-y-3">
@@ -156,7 +156,7 @@ const Features = () => {
                   <p>{item.desc}</p>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-x-1 text-sm font-medium text-green-500 duration-150 hover:text-green-400"
+                    className="inline-flex items-center gap-x-1 text-sm font-medium text-orange-500 duration-150 hover:text-orange-400"
                   >
                     Learn more
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">

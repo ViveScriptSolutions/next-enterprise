@@ -44,13 +44,14 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <OurServices />
+      <Features />
 
       <AboutUsSection />
 
+      <OurServices />
+
       <TestimonialSection />
 
-      <Features />
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">

@@ -17,7 +17,7 @@ export default async function OurServices() {
 
   return (
     <section className="services py-16" id="services">
-      {/* <div className="mx-auto max-w-screen-xl px-4 md:px-8">
+      <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="text-center">
           <h2 className="mb-6 text-3xl font-bold">Our Services</h2>
         </div>
@@ -42,9 +42,9 @@ export default async function OurServices() {
             </Link>
           ))}
         </div>
-      </div> */}
+      </div>
 
-      <section className="w-full bg-white py-16">
+      {/* <section className="w-full bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-8">
             {services.map((service, indx) => (
@@ -66,7 +66,7 @@ export default async function OurServices() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </section>
   )
 }
