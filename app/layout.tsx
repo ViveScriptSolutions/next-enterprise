@@ -5,6 +5,7 @@ import { Plus_Jakarta_Sans } from "next/font/google"
 // import { UserProvider } from "@/lib/auth";
 // import { getUser } from "@/lib/db/queries";
 // import localFont from "next/font/local"
+import AuthSessionProvider from "@/components/AuthSessionProvider"
 import { siteConfig } from "@/lib/site.config"
 // import { siteConfig } from "@/lib/site.config";
 
@@ -103,7 +104,7 @@ export default function RootLayout({
       <body className={`min-h-[100dvh] bg-gray-50`}>
         {/* <body className={`${geistSans.variable} ${geistMono.variable} min-h-[100dvh] bg-gray-50`}> */}
         {/* <UserProvider userPromise={userPromise}> */}
-        {children}
+        <AuthSessionProvider>{children}</AuthSessionProvider>
         {/* </UserProvider> */}
         {/* <Analytics /> */}
       </body>

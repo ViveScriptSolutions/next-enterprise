@@ -1,9 +1,12 @@
 "use client"
 
+import { Github, LayoutDashboardIcon, LifeBuoy, LogOut, User as UserIcon, Users } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
+import Logo from "@/components/branding/Logo"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { CircleIcon, Home, LogOut } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,27 +14,16 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-// import { useUser } from "@/lib/auth";
-// import { signOut } from "@/app/(login)/actions";
-import { useRouter } from "next/navigation"
-import Logo from "@/components/branding/Logo"
 import { siteConfig } from "@/lib/site.config"
-import { LayoutDashboardIcon } from "lucide-react"
-import { User } from "lucide-react"
-import { Users } from "lucide-react"
-import { Github } from "lucide-react"
-import { LifeBuoy } from "lucide-react"
-import { Separator } from "@radix-ui/react-dropdown-menu"
+import { useSession } from "next-auth/react"
 
 export default function Header() {
+  const { data: session, status } = useSession()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { user, setUser } = { user: "", setUser: () => {} }
-  // const { user, setUser } = useUser();
   const router = useRouter()
+  console.log(session)
 
   async function handleSignOut() {
     // setUser(null);
@@ -99,19 +91,18 @@ export default function Header() {
               })}
 
               {/* <UserMenu /> */}
-              {user ? (
+              {session?.user ? (
                 <>
                   <div className="flex flex-col gap-3 md:hidden">
                     <div className="flex items-center justify-start gap-3 border-t border-gray-200">
                       <Avatar className="mt-6 size-9 cursor-pointer">
                         <AvatarImage
-                          alt={""}
-                          // alt={user.name || ""}
+                          alt={session?.user.name || ""}
                           src={"/assets/images/avater_demon.jpeg"}
                           // src={user?.photoURL || "/assets/images/avater_demon.jpeg"}
                         />
                         <AvatarFallback>
-                          {""}
+                          {session?.user.name || ""}
                           {/* {user.email
                             .split(" ")
                             .map((n) => n[0])
@@ -161,7 +152,7 @@ export default function Header() {
                         <Avatar className="size-9 cursor-pointer">
                           <AvatarImage
                             alt={""}
-                            src={"/assets/images/avater_demon.jpeg"}
+                            src={session?.user?.image || "/assets/images/avater_demon.jpeg"}
                             // src={user?.photoURL || "/assets/images/avater_demon.jpeg"}
                           />
                           <AvatarFallback>
@@ -186,7 +177,7 @@ export default function Header() {
                           </DropdownMenuItem>
                           <DropdownMenuItem>
                             <Link href="/dashboard/profile" className="flex w-full items-center">
-                              <User className="mr-2 h-4 w-4" />
+                              <UserIcon className="mr-2 h-4 w-4" />
                               <span>Profile</span>
                             </Link>
                           </DropdownMenuItem>

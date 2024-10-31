@@ -25,6 +25,10 @@ export const env = createEnv({
     NEXTAUTH_SECRET: z.string(),
     NEXTAUTH_URL: z.string().url(),
 
+    // Auth Provider configuration
+    AUTH_GITHUB_ID: z.string(),
+    AUTH_GITHUB_SECRET: z.string(),
+
     // Other configuration
     BASE_URL: z.string().url(),
     SITE_NAME: z.string(),
@@ -73,6 +77,9 @@ export const env = createEnv({
     SITE_NAME: process.env.SITE_NAME,
     VERCEL_URL: process.env.VERCEL_URL,
     ANALYZE: process.env.ANALYZE,
+
+    AUTH_GITHUB_ID: process.env.AUTH_GITHUB_ID,
+    AUTH_GITHUB_SECRET: process.env.AUTH_GITHUB_SECRET,
 
     // Client-side variables
     GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
