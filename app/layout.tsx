@@ -7,6 +7,7 @@ import { Plus_Jakarta_Sans } from "next/font/google"
 // import localFont from "next/font/local"
 import AuthSessionProvider from "@/components/AuthSessionProvider"
 import { siteConfig } from "@/lib/site.config"
+import { auth } from "@/auth"
 // import { siteConfig } from "@/lib/site.config";
 
 // const geistSans = localFont({
@@ -88,12 +89,20 @@ const fontSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   // let userPromise = getUser();
+  const session = await auth()
+  if (session?.user) {
+    session.user = {
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
+    }
+  }
 
   return (
     <html lang="en" className={`bg-white text-black dark:bg-gray-950 dark:text-white ${fontSans.className}`}>
@@ -104,7 +113,7 @@ export default function RootLayout({
       <body className={`min-h-[100dvh] bg-gray-50`}>
         {/* <body className={`${geistSans.variable} ${geistMono.variable} min-h-[100dvh] bg-gray-50`}> */}
         {/* <UserProvider userPromise={userPromise}> */}
-        <AuthSessionProvider>{children}</AuthSessionProvider>
+        <AuthSessionProvider session={session}>{children}</AuthSessionProvider>
         {/* </UserProvider> */}
         {/* <Analytics /> */}
       </body>

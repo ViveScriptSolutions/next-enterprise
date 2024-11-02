@@ -1,9 +1,14 @@
 import { redirect } from "next/navigation"
 import { Settings } from "./settings"
-// import { getTeamForUser, getUser } from '@/lib/db/queries';
+import { auth } from "@/auth"
 
 export default async function SettingsPage() {
+  // const { data: session, status } = useSession()
+  const session = await auth()
+  // console.log(session, "Server Session")
+
   const user = { id: "4324", name: "amir", email: "test@test.com" }
+
   // const user = await getUser();
 
   if (!user) {

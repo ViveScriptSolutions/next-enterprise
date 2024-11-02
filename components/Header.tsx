@@ -2,7 +2,6 @@
 
 import { Github, LayoutDashboardIcon, LifeBuoy, LogOut, User as UserIcon, Users } from "lucide-react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Logo from "@/components/branding/Logo"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -17,19 +16,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { siteConfig } from "@/lib/site.config"
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
+// import { signOut } from "@/auth"
+// import SignOutButton from "./SignOutButton"
 
 export default function Header() {
   const { data: session, status } = useSession()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
-  console.log(session)
-
-  async function handleSignOut() {
-    // setUser(null);
-    // await signOut();
-    router.push("/")
-  }
 
   const Brand = () => (
     <div className="flex items-center justify-between py-5 md:block">
@@ -136,12 +129,19 @@ export default function Header() {
                         <span>Support</span>
                       </Link>
                     </li>
-                    <form action={handleSignOut} className="w-full">
+                    {/* <SignOutButton /> */}
+                    <form
+                      action={async () => {
+                        // "use server"
+
+                        await signOut()
+                        // router.push("/")
+                      }}
+                      className="w-full"
+                    >
                       <button type="submit" className="flex w-full">
-                        <li className="flex w-full cursor-pointer items-center">
-                          <LogOut className="mr-2 h-4 w-4" />
-                          <span>Sign out</span>
-                        </li>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>Sign out</span>
                       </button>
                     </form>
                   </div>
@@ -206,7 +206,16 @@ export default function Header() {
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                          <form action={handleSignOut} className="w-full">
+                          {/* <SignOutButton /> */}
+                          <form
+                            action={async () => {
+                              // "use server"
+
+                              await signOut()
+                              // router.push("/")
+                            }}
+                            className="w-full"
+                          >
                             <button type="submit" className="flex w-full">
                               <DropdownMenuItem className="w-full flex-1 cursor-pointer">
                                 <LogOut className="mr-2 h-4 w-4" />

@@ -19,15 +19,16 @@ export const env = createEnv({
 
     // Database configuration (server-only)
     POSTGRES_URL: z.string(),
-    AUTH_SECRET: z.string(),
 
     // NextAuth configuration
-    NEXTAUTH_SECRET: z.string(),
+    AUTH_SECRET: z.string(),
     NEXTAUTH_URL: z.string().url(),
 
     // Auth Provider configuration
     AUTH_GITHUB_ID: z.string(),
     AUTH_GITHUB_SECRET: z.string(),
+    AUTH_GOOGLE_ID: z.string(),
+    AUTH_GOOGLE_SECRET: z.string(),
 
     // Other configuration
     BASE_URL: z.string().url(),
@@ -71,7 +72,6 @@ export const env = createEnv({
     STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
     POSTGRES_URL: process.env.POSTGRES_URL,
     AUTH_SECRET: process.env.AUTH_SECRET,
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     BASE_URL: process.env.BASE_URL,
     SITE_NAME: process.env.SITE_NAME,
@@ -80,6 +80,8 @@ export const env = createEnv({
 
     AUTH_GITHUB_ID: process.env.AUTH_GITHUB_ID,
     AUTH_GITHUB_SECRET: process.env.AUTH_GITHUB_SECRET,
+    AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
+    AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
 
     // Client-side variables
     GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,

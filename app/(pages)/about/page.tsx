@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { services } from "@/lib/constant"
+import { auth } from "@/auth"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
     "Learn more about ViveScript Solutions LLC - our mission, values, and services in web and app development, automation, and more.",
 }
 
-const about = () => {
+const about = async () => {
+  const session = await auth()
+
   return (
     <>
       <div>
