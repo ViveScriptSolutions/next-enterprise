@@ -2,7 +2,7 @@
 
 import { AuthError } from "next-auth"
 import * as z from "zod"
-import { signIn } from "@/auth"
+import { signIn, signOut } from "@/auth"
 import { sendVerificationEmail } from "@/lib/mail"
 import { LoginSchema } from "@/lib/schema"
 import { generateVerificationToken } from "@/lib/tokens"
@@ -53,4 +53,8 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
     }
     throw error
   }
+}
+
+export const logOut = async () => {
+  await signOut()
 }

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { services } from "@/lib/constant"
-import { auth } from "@/auth"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -13,8 +12,6 @@ export const metadata: Metadata = {
 }
 
 const about = async () => {
-  const session = await auth()
-
   return (
     <>
       <div>
