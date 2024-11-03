@@ -1,57 +1,54 @@
-import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { notFound, useRouter } from "next/navigation";
-import { getServiceBySlug } from "@/lib/service.utils";
-import FaqSection from "@/components/FaqSection";
-import Link from "next/link";
-import Image from "next/image";
+// import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+// import { getServiceBySlug } from "@/lib/service.utils"
+// import FaqSection from "@/components/FaqSection"
 
-export const revalidate = 3600 * 24; // revalidate the data at most every day
+export const revalidate = 3600 * 24 // revalidate the data at most every day
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const params = await props.params;
-  const service = await getServiceBySlug(params.slug);
+// export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+//   const params = await props.params
+//   // const service = await getServiceBySlug(params.slug)
 
-  if (!service) return notFound();
+//   if (!service) return notFound()
 
-  return {
-    title: service.title,
-    description: service.description,
-    openGraph: {
-      publishedTime: service.createdAt?.toLocaleTimeString(),
-      modifiedTime: service.updatedAt?.toLocaleTimeString(),
-      type: "article",
-    },
-  };
-}
+//   return {
+//     title: service.title,
+//     description: service.description,
+//     openGraph: {
+//       publishedTime: service.createdAt?.toLocaleTimeString(),
+//       modifiedTime: service.updatedAt?.toLocaleTimeString(),
+//       type: "article",
+//     },
+//   }
+// }
 
-export default async function ServicePage(props: {
-  params: Promise<{ slug: string }>;
-}) {
-  const params = await props.params;
-  const service = await getServiceBySlug(params.slug);
+export default async function ServicePage(props: { params: Promise<{ slug: string }> }) {
+  // const params = await props.params
+  // const service = await getServiceBySlug(params.slug)
+  const service: any = []
 
-  if (!service) return notFound();
+  if (!service) return notFound()
 
   // if (loading) {
   //   return <div>Loading service details...</div>; // Skeleton loading could be added here
   // }
 
   if (!service) {
-    return <div>Service not found</div>;
+    return <div>Service not found</div>
   }
 
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container mx-auto px-4 py-10">
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center md:items-start">
+      <div className="flex flex-col items-center md:flex-row md:items-start">
         {/* Service Image */}
 
-        <div className="md:w-1/2 w-full mb-6 md:mb-0">
+        <div className="mb-6 w-full md:mb-0 md:w-1/2">
           {service.imageUrl && (
             <Image
               src={service.imageUrl}
@@ -64,17 +61,15 @@ export default async function ServicePage(props: {
         </div>
 
         {/* Service Information */}
-        <div className="md:w-1/2 w-full md:pl-8">
+        <div className="w-full md:w-1/2 md:pl-8">
           <h1 className="text-5xl font-bold text-primary">{service.title}</h1>
-          <Badge variant="outline" className="text-sm mt-2">
+          <Badge variant="outline" className="mt-2 text-sm">
             {service.subTitle}
           </Badge>
 
           {/* Pricing and CTA */}
           <div className="my-4">
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {service.brief}
-            </p>
+            <p className="text-lg text-gray-700 dark:text-gray-300">{service.brief}</p>
             {service.cta && (
               <Link href={service.cta.link}>
                 <Button className="mt-4" size="lg" color="blue">
@@ -90,15 +85,13 @@ export default async function ServicePage(props: {
 
       {/* Service Overview */}
       <section>
-        <h2 className="text-3xl font-bold mb-4">Service Overview</h2>
-        <p className="text-base text-muted-foreground mb-4">
-          {service.description}
-        </p>
+        <h2 className="mb-4 text-3xl font-bold">Service Overview</h2>
+        <p className="mb-4 text-base text-muted-foreground">{service.description}</p>
         {service.keyPoints && service.keyPoints.length > 0 && (
-          <ul className="list-disc pl-5 mb-4">
-            {service.keyPoints.map((point, index) => (
+          <ul className="mb-4 list-disc pl-5">
+            {/* {service.keyPoints.map((point, index) => (
               <li key={index}>{point}</li>
-            ))}
+            ))} */}
           </ul>
         )}
       </section>
@@ -107,7 +100,7 @@ export default async function ServicePage(props: {
       {service.faq && service.faq.length > 0 && (
         <>
           <Separator className="my-8" />
-          <FaqSection faq={service.faq} />
+          {/* <FaqSection faq={service.faq} /> */}
         </>
       )}
 
@@ -119,5 +112,5 @@ export default async function ServicePage(props: {
         </Button>
       </div> */}
     </div>
-  );
+  )
 }

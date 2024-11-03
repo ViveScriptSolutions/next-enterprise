@@ -1,9 +1,9 @@
 // Define a type for the props
 type LogoProps = {
-  fillColor?: string; // Hex color, string
-  backgroundColor?: string; // Background color, string
-  width?: number; // Width as number
-};
+  fillColor?: string // Hex color, string
+  backgroundColor?: string // Background color, string
+  width?: number // Width as number
+}
 
 const Logo: React.FC<LogoProps> = ({
   fillColor = "#ffffff", // Default fill color
@@ -11,44 +11,19 @@ const Logo: React.FC<LogoProps> = ({
   width = 200, // Default width
 }) => {
   return (
-    <div className="flex gap-1 items-center justify-center">
-      <LogoIcon
-        fillColor={fillColor}
-        backgroundColor={backgroundColor}
-        width={width * 0.25}
-      />
-      <IconDivider
-        fillColor={fillColor}
-        backgroundColor={backgroundColor}
-        width={width * 0.025}
-      />
-      <span className="flex flex-col items-start justify-center w-full h-full">
-        <CompanyName
-          fillColor={fillColor}
-          backgroundColor={backgroundColor}
-          width={width * 0.9}
-        />
-        <Slogan
-          fillColor={fillColor}
-          backgroundColor={backgroundColor}
-          width={width * 0.9}
-        />
+    <div className="flex items-center justify-center gap-1">
+      <LogoIcon fillColor={fillColor} backgroundColor={backgroundColor} width={width * 0.25} />
+      <IconDivider fillColor={fillColor} backgroundColor={backgroundColor} width={width * 0.025} />
+      <span className="flex size-full flex-col items-start justify-center">
+        <CompanyName fillColor={fillColor} backgroundColor={backgroundColor} width={width * 0.9} />
+        <Slogan fillColor={fillColor} backgroundColor={backgroundColor} width={width * 0.9} />
       </span>
     </div>
-  );
-};
+  )
+}
 
-export const LogoIcon: React.FC<LogoProps> = ({
-  fillColor = "#ffffff",
-  backgroundColor = "none",
-  width = 50,
-}) => (
-  <svg
-    width={width}
-    height={width}
-    viewBox="0 0 132.29167 132.29167"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+export const LogoIcon: React.FC<LogoProps> = ({ fillColor = "#ffffff", backgroundColor = "none", width = 50 }) => (
+  <svg width={width} height={width} viewBox="0 0 132.29167 132.29167" xmlns="http://www.w3.org/2000/svg">
     <rect width="100%" height="100%" fill={backgroundColor} />
     <g transform="matrix(62.400569,0,0,62.400569,49.203275,8.2145557)">
       <path
@@ -63,7 +38,7 @@ export const LogoIcon: React.FC<LogoProps> = ({
       />
     </g>
   </svg>
-);
+)
 
 export const CompanyName: React.FC<LogoProps> = ({
   fillColor = "#000000", // Default fill color
@@ -128,8 +103,8 @@ export const CompanyName: React.FC<LogoProps> = ({
         </text>
       </g>
     </svg>
-  );
-};
+  )
+}
 
 // export const CompanyName: React.FC<LogoProps> = ({
 //   fillColor = "#ffffff", // Default fill color
@@ -219,8 +194,8 @@ const Slogan: React.FC<LogoProps> = ({
         </text>
       </g>
     </svg>
-  );
-};
+  )
+}
 
 // export const Slogan: React.FC<LogoProps> = ({
 //   fillColor = "#ffffff", // Default fill color
@@ -250,12 +225,7 @@ export const IconDivider: React.FC<LogoProps> = ({
   backgroundColor = "none", // Default background color
   width = 5, // Default width
 }) => (
-  <svg
-    width={width}
-    height={width * 10}
-    viewBox="0 0 10.583334 132.29167"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={width} height={width * 10} viewBox="0 0 10.583334 132.29167" xmlns="http://www.w3.org/2000/svg">
     {/* Background rectangle */}
     <rect width="100%" height="100%" fill={backgroundColor} />
 
@@ -270,6 +240,6 @@ export const IconDivider: React.FC<LogoProps> = ({
       />
     </g>
   </svg>
-);
+)
 
-export default Logo;
+export default Logo

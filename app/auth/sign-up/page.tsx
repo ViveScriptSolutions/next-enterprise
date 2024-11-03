@@ -1,10 +1,10 @@
-import { CircleIcon } from "lucide-react"
-import RegisterForm from "./RegisterForm"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
-import GoogleImage from "@/components/GoogleImage"
+import { CircleIcon } from "lucide-react"
+import Link from "next/link"
 import { signIn } from "@/auth"
+import GoogleImage from "@/components/GoogleImage"
+import { Button } from "@/components/ui/button"
+import RegisterForm from "./RegisterForm"
 
 export default function SignUpPage() {
   return (

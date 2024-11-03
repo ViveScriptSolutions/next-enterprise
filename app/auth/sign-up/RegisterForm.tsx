@@ -1,5 +1,10 @@
 "use client"
 
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
+import { useState, useTransition } from "react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 import FormError from "@/components/form-error"
 import FormSuccess from "@/components/form-success"
 import { Button } from "@/components/ui/button"
@@ -7,11 +12,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { register } from "@/lib/actions/register.action"
 import { RegisterSchema } from "@/lib/schema"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Loader2 } from "lucide-react"
-import { useState, useTransition } from "react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
 
 const RegisterForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -52,7 +52,7 @@ const RegisterForm = () => {
                       {...field}
                       placeholder="Enter your name"
                       disabled={isPending}
-                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
                     />
                   </div>
                 </FormControl>
@@ -100,7 +100,7 @@ const RegisterForm = () => {
                       placeholder="******"
                       type="password"
                       disabled={isPending}
-                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
                     />
                   </div>
                 </FormControl>
@@ -121,7 +121,7 @@ const RegisterForm = () => {
         >
           {isPending ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 size-4 animate-spin" />
               Loading...
             </>
           ) : (

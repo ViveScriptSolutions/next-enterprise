@@ -1,7 +1,7 @@
 // import { getAllBlogs } from "@/lib/blog.utils";
 import { Metadata } from "next"
-import { BlogCard } from "./BlogCard"
 import { Blog } from "@/types/blog.types"
+import { BlogCard } from "./BlogCard"
 
 // Set metadata for SEO
 export const metadata: Metadata = {

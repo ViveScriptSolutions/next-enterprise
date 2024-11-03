@@ -1,10 +1,10 @@
 "use client"
 
 import { Loader2 } from "lucide-react"
+import { useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 import FormError from "@/components/form-error"
 import FormSuccess from "@/components/form-success"
-import { useSearchParams } from "next/navigation"
 import { newVerification } from "@/lib/actions/verification.action"
 
 const NewVerificationForm = () => {

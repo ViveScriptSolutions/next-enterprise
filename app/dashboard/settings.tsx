@@ -9,21 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 // import { removeTeamMember } from "@/app/(login)/actions"
 import { InviteTeamMember } from "./invite-team"
 
-type ActionState = {
-  error?: string
-  success?: string
-}
-
 export function Settings({ teamData }: { teamData: any }) {
-  // const [removeState, removeAction, isRemovePending] = useActionState<ActionState, FormData>(removeTeamMember, {
-  //   error: "",
-  //   success: "",
-  // })
-
-  const getUserDisplayName = (user: Pick<any, "id" | "name" | "email">) => {
-    return user.name || user.email || "Unknown User"
-  }
-
   return (
     <section className="flex-1 p-4 lg:p-8">
       <h1 className="mb-6 text-lg font-medium lg:text-2xl">Team Settings</h1>
@@ -36,7 +22,7 @@ export function Settings({ teamData }: { teamData: any }) {
             <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
               <div className="mb-4 sm:mb-0">
                 <p className="font-medium">Current Plan: {teamData.planName || "Free"}</p>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   {teamData.subscriptionStatus === "active"
                     ? "Billed monthly"
                     : teamData.subscriptionStatus === "trialing"

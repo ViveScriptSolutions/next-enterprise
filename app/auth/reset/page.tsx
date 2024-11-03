@@ -1,7 +1,7 @@
-import React from "react"
-import ResetForm from "./ResteForm"
 import { CircleIcon } from "lucide-react"
 import Link from "next/link"
+import React from "react"
+import ResetForm from "./ResteForm"
 
 const ResetPage = () => {
   return (

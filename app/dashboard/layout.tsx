@@ -25,7 +25,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <span className="font-medium">Settings</span>
         </div>
         <Button className="-mr-3" variant="ghost" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-          <Menu className="h-6 w-6" />
+          <Menu className="size-6" />
           <span className="sr-only">Toggle sidebar</span>
         </Button>
       </div>
@@ -35,7 +35,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <aside
           className={`w-64 border-r border-gray-200 bg-white lg:block lg:bg-gray-50 ${
             isSidebarOpen ? "block" : "hidden"
-          } absolute inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${
+          } absolute inset-y-0 left-0 z-40 transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -47,7 +47,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   className={`my-1 w-full justify-start ${pathname === item.href ? "bg-gray-100" : ""}`}
                   onClick={() => setIsSidebarOpen(false)}
                 >
-                  <item.icon className="mr-2 h-4 w-4" />
+                  <item.icon className="mr-2 size-4" />
                   {item.label}
                 </Button>
               </Link>

@@ -1,13 +1,11 @@
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { Terminal } from "./terminal"
-import { Button } from "@/components/ui/button"
 import AboutUsSection from "@/components/Home/AboutUsSection"
+import Features from "@/components/Home/Features"
 import OurServices from "@/components/Home/OurServices"
 import TestimonialSection from "@/components/Home/Testimonial"
-import Features from "@/components/Home/Features"
-
-// import GetStartedModal from "@/components/GetStartedModal";
+import { Button } from "@/components/ui/button"
+import { Terminal } from "./terminal"
 
 export default function Dashboard() {
   return (
@@ -66,7 +64,7 @@ export default function Dashboard() {
               <a href="/shop" target="_blank">
                 <Button className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-12 py-6 text-xl text-black hover:bg-gray-100">
                   Get Started
-                  <ArrowRight className="ml-3 h-6 w-6" />
+                  <ArrowRight className="ml-3 size-6" />
                 </Button>
               </a>
             </div>

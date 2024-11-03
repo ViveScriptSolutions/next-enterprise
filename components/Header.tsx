@@ -32,7 +32,7 @@ export default function Header() {
       <div className="md:hidden">
         <button className="menu-btn text-gray-400 hover:text-gray-300" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="size-6" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fillRule="evenodd"
                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -46,7 +46,7 @@ export default function Header() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="h-6 w-6"
+              className="size-6"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
@@ -106,26 +106,26 @@ export default function Header() {
                     </div>
                     <li>
                       <Link href="/dashboard" className="flex w-full items-center">
-                        <LayoutDashboardIcon className="mr-2 h-4 w-4" />
+                        <LayoutDashboardIcon className="mr-2 size-4" />
                         <span>Dashboard</span>
                         {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
                       </Link>
                     </li>
                     <li>
                       <Link href="/dashboard/team" className="flex w-full items-center">
-                        <Users className="mr-2 h-4 w-4" />
+                        <Users className="mr-2 size-4" />
                         <span>Team</span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/dashboard/" className="flex w-full items-center">
-                        <Github className="mr-2 h-4 w-4" />
+                        <Github className="mr-2 size-4" />
                         <span>GitHub</span>
                       </Link>
                     </li>
                     <li>
                       <Link href="/dashboard/" className="flex w-full items-center">
-                        <LifeBuoy className="mr-2 h-4 w-4" />
+                        <LifeBuoy className="mr-2 size-4" />
                         <span>Support</span>
                       </Link>
                     </li>
@@ -140,7 +140,7 @@ export default function Header() {
                       className="w-full"
                     >
                       <button type="submit" className="flex w-full">
-                        <LogOut className="mr-2 h-4 w-4" />
+                        <LogOut className="mr-2 size-4" />
                         <span>Sign out</span>
                       </button>
                     </form>
@@ -170,14 +170,14 @@ export default function Header() {
                         <DropdownMenuGroup>
                           <DropdownMenuItem>
                             <Link href="/dashboard" className="flex w-full items-center">
-                              <LayoutDashboardIcon className="mr-2 h-4 w-4" />
+                              <LayoutDashboardIcon className="mr-2 size-4" />
                               <span>Dashboard</span>
                               {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
                             </Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
                             <Link href="/dashboard/profile" className="flex w-full items-center">
-                              <UserIcon className="mr-2 h-4 w-4" />
+                              <UserIcon className="mr-2 size-4" />
                               <span>Profile</span>
                             </Link>
                           </DropdownMenuItem>
@@ -186,7 +186,7 @@ export default function Header() {
                         <DropdownMenuGroup>
                           <DropdownMenuItem>
                             <Link href="/dashboard/team" className="flex w-full items-center">
-                              <Users className="mr-2 h-4 w-4" />
+                              <Users className="mr-2 size-4" />
                               <span>Team</span>
                             </Link>
                           </DropdownMenuItem>
@@ -194,13 +194,13 @@ export default function Header() {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
                           <Link href="/dashboard/" className="flex w-full items-center">
-                            <Github className="mr-2 h-4 w-4" />
+                            <Github className="mr-2 size-4" />
                             <span>GitHub</span>
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                           <Link href="/dashboard/" className="flex w-full items-center">
-                            <LifeBuoy className="mr-2 h-4 w-4" />
+                            <LifeBuoy className="mr-2 size-4" />
                             <span>Support</span>
                           </Link>
                         </DropdownMenuItem>
@@ -218,7 +218,7 @@ export default function Header() {
                           >
                             <button type="submit" className="flex w-full">
                               <DropdownMenuItem className="w-full flex-1 cursor-pointer">
-                                <LogOut className="mr-2 h-4 w-4" />
+                                <LogOut className="mr-2 size-4" />
                                 <span>Sign out</span>
                               </DropdownMenuItem>
                             </button>

@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
+import Link from "next/link"
 import { useState, useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -12,7 +13,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { login } from "@/lib/actions/login.action"
 import { LoginSchema } from "@/lib/schema"
-import Link from "next/link"
 
 const LogInForm = () => {
   const [isPending, startTransition] = useTransition()
@@ -56,7 +56,7 @@ const LogInForm = () => {
                       placeholder="Enter your email"
                       type="email"
                       disabled={isPending}
-                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
                     />
                   </div>
                 </FormControl>
