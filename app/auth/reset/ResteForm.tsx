@@ -10,38 +10,37 @@ import FormSuccess from "@/components/form-success"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { login } from "@/lib/actions/login.action"
-import { LoginSchema } from "@/lib/schema"
-import Link from "next/link"
+import { resetPassword } from "@/lib/actions/reset.action"
+import { ResetSchema } from "@/lib/schema"
 
-const LogInForm = () => {
+const ResetForm = () => {
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | undefined>("")
   const [success, setSuccess] = useState<string | undefined>("")
 
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<z.infer<typeof ResetSchema>>({
+    resolver: zodResolver(ResetSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   })
 
-  const handleSignIn = async (values: z.infer<typeof LoginSchema>) => {
+  const handleResetPw = async (values: z.infer<typeof ResetSchema>) => {
     setError("")
     setSuccess("")
 
     startTransition(() => {
-      login(values).then((data) => {
+      resetPassword(values).then((data) => {
         setError(data?.error)
         setSuccess(data?.success)
       })
+      // console.log(values)
     })
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSignIn)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(handleResetPw)} className="space-y-6">
         <div>
           <FormField
             control={form.control}
@@ -56,37 +55,10 @@ const LogInForm = () => {
                       placeholder="Enter your email"
                       type="email"
                       disabled={isPending}
-                      className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
-                    />
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div>
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="block text-sm font-medium text-gray-700">Password</FormLabel>
-                <FormControl>
-                  <div className="mt-1">
-                    <Input
-                      {...field}
-                      placeholder="******"
-                      type="password"
-                      disabled={isPending}
                       className="relative block w-full appearance-none rounded-full border border-gray-300 px-3 py-2 text-gray-900 placeholder:text-gray-500 focus:z-10 focus:border-orange-500 focus:outline-none focus:ring-orange-500 sm:text-sm"
                     />
                   </div>
                 </FormControl>
-                <Button size="sm" variant="link" className="px-0 font-normal" asChild>
-                  <Link href="/auth/reset">Forgot password?</Link>
-                </Button>
                 <FormMessage />
               </FormItem>
             )}
@@ -107,13 +79,12 @@ const LogInForm = () => {
               Loading...
             </>
           ) : (
-            "Sign in"
+            "Send reset email"
           )}
-          {/* Sign in */}
         </Button>
       </form>
     </Form>
   )
 }
 
-export default LogInForm
+export default ResetForm

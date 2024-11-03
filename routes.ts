@@ -23,7 +23,7 @@ export const publicRoutes = [
  * These routes will redirect to /dashboard
  * @type {string[]}
  */
-export const authRoutes = ["/auth/sign-in", "/auth/sign-up", "/auth/auth/error"]
+export const authRoutes = ["/auth/sign-in", "/auth/sign-up", "/auth/auth/error", "/auth/reset", "/auth/new-password"]
 
 /**
  * The prefix for API authentication routes

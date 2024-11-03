@@ -37,3 +37,13 @@ export const sendVerificationEmail = async (email: string, token: string, subjec
     html: `<div><p>Please, verify your email. <a href="${confirmationLink}">Click here</a> or follow this verification url: ${confirmationLink}</p></div>`,
   })
 }
+
+export const sendPasswordResetEmail = async (email: string, token: string, subject?: string) => {
+  const resetLink = `http://localhost:3000/auth/new-password?token=${token}`
+
+  await sendEmail({
+    to: email,
+    subject: subject || "Please, verify for reset your password!",
+    html: `<div><p>Please, verify your email. <a href="${resetLink}">Click here</a> or follow this password reset url: ${resetLink}</p></div>`,
+  })
+}

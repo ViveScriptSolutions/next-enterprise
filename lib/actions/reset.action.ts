@@ -1,0 +1,74 @@
+"use server"
+
+import bcrypt from "bcryptjs"
+import { z } from "zod"
+import { getPasswordResetTokenByToken } from "@/lib/data/pw-reset-token"
+import { getUserByEmail } from "@/lib/data/user"
+import { db } from "@/lib/db"
+import { sendPasswordResetEmail } from "@/lib/mail"
+import { NewPasswordSchema, ResetSchema } from "@/lib/schema"
+import { generatePasswordResetToken } from "@/lib/tokens"
+
+export const resetPassword = async (values: z.infer<typeof ResetSchema>) => {
+  const validatedFields = ResetSchema.safeParse(values)
+
+  if (!validatedFields.success) {
+    return { error: "Invalid email!" }
+  }
+
+  const { email } = validatedFields.data
+
+  const existingUser = await getUserByEmail(email)
+
+  if (!existingUser) {
+    return { error: "Email not found!" }
+  }
+
+  const passResetToken = await generatePasswordResetToken(existingUser.email)
+
+  await sendPasswordResetEmail(passResetToken.email, passResetToken.token)
+
+  return { success: "Reset email sent! Check you email please." }
+}
+
+export const setNewPassword = async (values: z.infer<typeof NewPasswordSchema>, token?: string | null) => {
+  if (!token) {
+    return { error: "Missing token!" }
+  }
+
+  const validatedFields = NewPasswordSchema.safeParse(values)
+
+  if (!validatedFields.success) {
+    return { error: "Invalid input!" }
+  }
+
+  const { password } = validatedFields.data
+
+  console.log(token)
+
+  const existingToken = await getPasswordResetTokenByToken(token)
+
+  if (!existingToken) {
+    return { error: "Invalid token!" }
+  }
+
+  const hasExpired = new Date(existingToken.expires) < new Date()
+
+  if (hasExpired) {
+    return { error: "Token has expired!" }
+  }
+
+  const existingUser = await getUserByEmail(existingToken.email)
+
+  if (!existingUser) {
+    return { error: "Email does not exist!" }
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10)
+
+  await db.user.update({ where: { id: existingUser.id }, data: { password: hashedPassword } })
+
+  await db.passwordRestToken.delete({ where: { id: existingToken.id } })
+
+  return { success: "Password updated successfully!" }
+}

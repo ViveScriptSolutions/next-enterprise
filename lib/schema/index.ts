@@ -11,10 +11,13 @@ export const RegisterSchema = z.object({
   password: z.string().min(6),
 })
 
-// export const EmailVerificationSchema = z.object({
-//   email: z.string().email(),
-//   token: z.string(),
-// })
+export const ResetSchema = z.object({
+  email: z.string().email(),
+})
+
+export const NewPasswordSchema = z.object({
+  password: z.string().min(6),
+})
 
 export const SendEmailSchema = z.object({
   to: z.string().min(5),
