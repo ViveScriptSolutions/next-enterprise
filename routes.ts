@@ -5,6 +5,7 @@
  */
 export const publicRoutes = [
   "/",
+  "/auth/email-verification",
   "/about",
   "/contact",
   "/blog",

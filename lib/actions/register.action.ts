@@ -1,10 +1,12 @@
 "use server"
 
-import { RegisterSchema } from "@/lib/schema"
-import * as z from "zod"
 import bcrypt from "bcryptjs"
+import * as z from "zod"
+import { getUserByEmail } from "@/lib/data/user"
 import { db } from "@/lib/db"
-import { getUserByEmail } from "@/lib/actions/user.action"
+import { RegisterSchema } from "@/lib/schema"
+import { generateVerificationToken } from "../tokens"
+import { sendVerificationEmail } from "../mail"
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const validateFields = RegisterSchema.safeParse(values)
@@ -30,7 +32,10 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
     },
   })
 
-  // TODO: Send verification token email
+  // Send verification token email
+  const verificationToken = await generateVerificationToken(email)
 
-  return { success: "User created successfully!" }
+  await sendVerificationEmail(verificationToken.email, verificationToken.token)
+
+  return { success: "Please check your email and verify!" }
 }

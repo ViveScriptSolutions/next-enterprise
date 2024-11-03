@@ -1,10 +1,10 @@
-import type { NextAuthConfig } from "next-auth"
-import Google from "next-auth/providers/google"
-import GitHub from "next-auth/providers/github"
-import Credentials from "next-auth/providers/credentials"
-import { LoginSchema } from "./lib/schema"
-import { getUserByEmail } from "./lib/actions/user.action"
 import bcrypt from "bcryptjs"
+import type { NextAuthConfig } from "next-auth"
+import Credentials from "next-auth/providers/credentials"
+import GitHub from "next-auth/providers/github"
+import Google from "next-auth/providers/google"
+import { getUserByEmail } from "./lib/data/user"
+import { LoginSchema } from "./lib/schema"
 
 // Notice this is only an object, not a full Auth.js instance
 export default {

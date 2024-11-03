@@ -1,9 +1,9 @@
-import NextAuth from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
+import { UserRole } from "@prisma/client"
+import NextAuth from "next-auth"
+import { getUserById } from "@/lib/data/user"
 import authConfig from "./auth.config"
 import { db } from "./lib/db"
-import { getUserById } from "@/lib/actions/user.action"
-import { UserRole } from "@prisma/client"
 
 export const {
   handlers: { GET, POST },
@@ -16,7 +16,22 @@ export const {
     signIn: "/auth/sign-in",
     error: "/auth/error",
   },
+  events: {
+    async linkAccount({ user }) {
+      await db.user.update({ where: { id: user.id }, data: { emailVerified: new Date() } })
+    },
+  },
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider !== "credentials") return true
+
+      const existingUser = await getUserById(user.id) // TODO: Fix this type error
+
+      if (!existingUser?.emailVerified) return false
+
+      return true
+    },
+
     async session({ token, session }) {
       if (token.sub && session.user) {
         session.user.id = token.sub
@@ -27,10 +42,9 @@ export const {
         session.user.role = token.role as UserRole
       }
 
-      console.log("Session Token: ", { session })
-
       return session
     },
+
     async jwt({ token }) {
       if (!token.sub) return token
 
