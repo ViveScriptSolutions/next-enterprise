@@ -12,7 +12,7 @@ export default async function SettingsPage() {
   // const user = await getUser();
 
   if (!user) {
-    redirect("/sign-in")
+    redirect("/auth/sign-in")
   }
 
   const teamData = { id: "", name: "", email: "" }

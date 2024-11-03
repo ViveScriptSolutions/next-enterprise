@@ -232,7 +232,7 @@ export default function Header() {
               ) : (
                 <li>
                   <Button asChild className="rounded-full bg-black px-4 py-2 text-sm text-white hover:bg-gray-800">
-                    <Link href="/sign-in">Sign In</Link>
+                    <Link href="/auth/sign-in">Sign In</Link>
                   </Button>
                 </li>
               )}

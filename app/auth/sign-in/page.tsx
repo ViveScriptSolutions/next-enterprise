@@ -19,7 +19,7 @@ export default function SignInPage() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <LogInForm />
         <div className="flex w-full justify-center pt-4 text-orange-700">
-          <Link href="/sign-up">New to our website? Create new account here!</Link>
+          <Link href="/auth/sign-up">New to our website? Create new account here!</Link>
         </div>
 
         <div className="mt-6">

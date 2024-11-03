@@ -19,7 +19,7 @@ export default function SignUpPage() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <RegisterForm />
         <div className="flex w-full justify-center pt-4 text-orange-700">
-          <Link href="/sign-in">Already have an account?</Link>
+          <Link href="/auth/sign-in">Already have an account?</Link>
         </div>
 
         <div className="mt-6">

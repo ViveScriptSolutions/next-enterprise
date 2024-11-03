@@ -13,7 +13,7 @@ export const {
 } = NextAuth({
   adapter: PrismaAdapter(db),
   pages: {
-    signIn: "/sign-in",
+    signIn: "/auth/sign-in",
     error: "/auth/error",
   },
   callbacks: {

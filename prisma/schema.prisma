@@ -68,6 +68,7 @@ model Session {
  
 model VerificationToken {
   identifier String
+  email      String
   token      String
   expires    DateTime
  
