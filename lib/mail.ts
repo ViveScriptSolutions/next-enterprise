@@ -8,8 +8,8 @@ const transporter = nodemailer.createTransport({
   port: 465, // Use 587 if you prefer TLS
   secure: true, // true for 465, false for other ports
   auth: {
-    user: "info@vivescriptsolutions.com", // Your Private Email address
-    pass: "4GSSSVvgq,q5g,P", // TODO: Need to move this in env //Your Private Email password
+    user: process.env.EMAIL_USER, // Your Private Email address
+    pass: process.env.EMAIL_PASSWORD, // TODO: Need to move this in env //Your Private Email password
   },
 })
 

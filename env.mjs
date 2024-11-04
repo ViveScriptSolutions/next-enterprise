@@ -30,6 +30,10 @@ export const env = createEnv({
     AUTH_GOOGLE_ID: z.string(),
     AUTH_GOOGLE_SECRET: z.string(),
 
+    // Email
+    EMAIL_USER: z.string(),
+    EMAIL_PASSWORD: z.string(),
+
     // Other configuration
     BASE_URL: z.string().url(),
     SITE_NAME: z.string(),
@@ -82,6 +86,9 @@ export const env = createEnv({
     AUTH_GITHUB_SECRET: process.env.AUTH_GITHUB_SECRET,
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
+
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
 
     // Client-side variables
     GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
