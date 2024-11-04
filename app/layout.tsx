@@ -1,25 +1,22 @@
 import "styles/tailwind.css"
+import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata, Viewport } from "next"
-// import { GoogleTagManager } from "@next/third-parties/google";
 import { Plus_Jakarta_Sans } from "next/font/google"
-// import { UserProvider } from "@/lib/auth";
-// import { getUser } from "@/lib/db/queries";
-// import localFont from "next/font/local"
+import localFont from "next/font/local"
+import { auth } from "@/auth"
 import AuthSessionProvider from "@/components/AuthSessionProvider"
 import { siteConfig } from "@/lib/site.config"
-import { auth } from "@/auth"
-// import { siteConfig } from "@/lib/site.config";
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistSansVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// })
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// })
+const geistSans = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+})
+const geistMono = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
@@ -109,13 +106,10 @@ export default async function RootLayout({
     <html lang="en" className={`bg-white text-black dark:bg-gray-950 dark:text-white ${fontSans.className}`}>
       <head>
         {/* <AdSense pid="6917391278948112" /> */}
-        {/* <GoogleTagManager gtmId="GTM-53DT2CP2" /> */}
+        <GoogleTagManager gtmId="GTM-53DT2CP2" />
       </head>
-      <body className={`min-h-[100dvh] bg-gray-50`}>
-        {/* <body className={`${geistSans.variable} ${geistMono.variable} min-h-[100dvh] bg-gray-50`}> */}
-        {/* <UserProvider userPromise={userPromise}> */}
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-dvh bg-gray-50`}>
         <AuthSessionProvider session={session}>{children}</AuthSessionProvider>
-        {/* </UserProvider> */}
         {/* <Analytics /> */}
       </body>
     </html>
