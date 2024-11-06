@@ -1,7 +1,7 @@
+import { NextResponse } from "next/server"
 import NextAuth from "next-auth"
 import authConfig from "@/auth.config"
 import { apiAuthPrefix, authRoutes, DEFAULT_LOGIN_REDIRECT, publicRoutes } from "@/routes"
-import { NextResponse } from "next/server"
 
 const { auth } = NextAuth(authConfig)
 
@@ -35,20 +35,3 @@ export const config = {
     "/(api|trpc)(.*)",
   ],
 }
-
-// import { NextResponse } from "next/server"
-// import type { NextRequest } from "next/server"
-// // import { getToken } from "next-auth/jwt"
-// // import { getSession } from "next-auth/react"
-// import { auth, authOptions } from "@/lib/auth"
-
-// export default auth((req: NextRequest) => {
-//   const isLoggedIn = !!req.auth
-
-// if (isLoggedIn) {
-//   return NextResponse.next()
-// }
-
-// // console.log("Isloggedin? ", isLoggedIn)
-// return NextResponse.redirect(new URL("/sign-in", req.url))
-// })

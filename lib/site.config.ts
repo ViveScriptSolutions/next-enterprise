@@ -1,11 +1,10 @@
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "ViveScript Solutions",
   legalName: "ViveScript Solutions LLC.",
   slogan: "Code. Create. Innovate.",
-  description:
-    "Elevate Your Business with Cutting-Edge Web Development & Automation. At ViveScript Solutions, we're passionate about helping businesses like yours thrive in the digital age. We believe in a collaborative approach, understanding your unique needs and challenges. Our expertise spans web and app development, business data analysis, and more, all powered by a commitment to ethical practices and empowering solutions.",
+  description: "",
   domain: "https://www.vivescriptsolutions.com",
   email: "info@ViveScriptSolutions.com",
   telephone: "+1 555 1234 567",
@@ -13,8 +12,7 @@ export const siteConfig = {
     {
       title: "Home",
       href: "/",
-      description:
-        "Elevate Your Business with Cutting-Edge Web Development & Automation.",
+      description: "Elevate Your Business with Cutting-Edge Web Development & Automation.",
     },
     {
       title: "Shop",
@@ -46,11 +44,6 @@ export const siteConfig = {
       title: "Blog",
       tooltip: "Our blog section",
     },
-    // {
-    //   url: "/services",
-    //   title: "Services",
-    //   tooltip: "Our services section",
-    // }, // Still nothing in this page.
     {
       url: "/privacy-policy",
       title: "Privacy Policy",
@@ -78,4 +71,4 @@ export const siteConfig = {
     docs: "#",
   },
   twitterCreator: "@vivesporting", // Must tart with @
-};
+}

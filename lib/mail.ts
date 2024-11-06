@@ -4,7 +4,7 @@ import { SendEmailSchema } from "@/lib/schema"
 const nodemailer = require("nodemailer")
 
 const transporter = nodemailer.createTransport({
-  host: "mail.privateemail.com",
+  host: "mail.privateemail.com", // Your mail hostname
   port: 465, // Use 587 if you prefer TLS
   secure: true, // true for 465, false for other ports
   auth: {
@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 export const sendEmail = async ({ to, subject, html }: z.infer<typeof SendEmailSchema>) => {
   try {
     const info = await transporter.sendMail({
-      from: '"ViveScript Solutions" <info@vivescriptsolutions.com>',
+      from: "",
       to,
       subject,
       html,
